@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Comidas {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        // Solicitar datos al usuario
+        System.out.print("Ingrese la hora del día (mañana, tarde o noche): ");
+        String horaDelDia = entrada.nextLine().toLowerCase();
+
+        System.out.print("Ingrese el clima actual (frío, cálido o lluvioso): ");
+        String clima = entrada.nextLine().toLowerCase();
+
+        String recomendacion = "";
+
+        // Evaluar las combinaciones con if anidados
+        if (horaDelDia.equals("mañana")) {
+            if (clima.equals("frio")) {
+                recomendacion = "Café caliente con pan dulce.";
+            } else if (clima.equals("calido")) {
+                recomendacion = "Yogur con frutas frescas.";
+            } else if (clima.equals("lluvioso")) {
+                recomendacion = "Avena caliente con canela.";
+            } else {
+                System.out.println("Clima no reconocido. Usa: frio, calido o lluvioso.");
+                entrada.close();
+                return;
+            }
+        } else if (horaDelDia.equals("tarde")) {
+            if (clima.equals("frio")) {
+                recomendacion = "Sopa de verduras.";
+            } else if (clima.equals("calido")) {
+                recomendacion = "Ensalada fresca con limón.";
+            } else if (clima.equals("lluvioso")) {
+                recomendacion = "Arroz con pollo y verduras.";
+            } else {
+                System.out.println("Clima no reconocido. Usa: frio, calido o lluvioso.");
+                entrada.close();
+                return;
+            }
+        } else if (horaDelDia.equals("noche")) {
+            if (clima.equals("frio")) {
+                recomendacion = "Pasta caliente con salsa.";
+            } else if (clima.equals("calido")) {
+                recomendacion = "Sándwich ligero con té helado.";
+            } else if (clima.equals("lluvioso")) {
+                recomendacion = "Ramen casero.";
+            } else {
+                System.out.println("Clima no reconocido. Usa: frio, calido o lluvioso.");
+                entrada.close();
+                return;
+            }
+        } else {
+            System.out.println("Entrada no válida. Usa: mañana, tarde o noche.");
+            entrada.close();
+            return;
+        }
+
+        // Mostrar el resultado final
+        System.out.println("\n--- Recomendación de comida ---");
+        System.out.println("Hora del día: " + horaDelDia);
+        System.out.println("Clima actual: " + clima);
+        System.out.println("Sugerencia: " + recomendacion);
+
+        entrada.close();
+    }
+}

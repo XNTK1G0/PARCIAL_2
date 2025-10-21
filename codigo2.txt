@@ -1,0 +1,13 @@
+public class NumerosImpares {
+    public static void main(String[] args) {
+
+        System.out.println("Números impares del 1 al 50:");
+        for (int i = 1; i <= 50; i++) {
+            if (i % 2 != 0) {
+                System.out.print(i + " ");
+            }
+        }
+        System.out.println("\nFin del programa.");
+    }
+    //En este codigo use for por que esta establecido el rango
+}

@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class ConversionUnidades {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        double valor, resultado;
+        int opcion;
+
+        System.out.println("=== MENÚ DE CONVERSIÓN DE UNIDADES ===");
+        System.out.print("Ingresa el valor a convertir: ");
+        valor = entrada.nextDouble();
+
+        System.out.println("\nSelecciona una opción:");
+        System.out.println("1. Centímetros a pulgadas");
+        System.out.println("2. Kilogramos a libras");
+        System.out.println("3. Litros a galones");
+        System.out.println("4. Salir");
+        System.out.print("Opción: ");
+        opcion = entrada.nextInt();
+
+        switch (opcion) {
+            case 1:
+                resultado = valor / 2.54;
+                System.out.printf("%.2f centímetros equivalen a %.2f pulgadas.%n", valor, resultado);
+                break;
+            case 2:
+                resultado = valor / 0.4536;
+                System.out.printf("%.2f kilogramos equivalen a %.2f libras.%n", valor, resultado);
+                break;
+            case 3:
+                resultado = valor / 3.785;
+                System.out.printf("%.2f litros equivalen a %.2f galones.%n", valor, resultado);
+                break;
+            case 4:
+                System.out.println("Saliendo del programa... ¡Hasta luego!");
+                break;
+            default:
+                System.out.println("Opción no válida. Por favor, elige una opción del 1 al 4.");
+        }
+
+        entrada.close();
+    }
+}

@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class Horasextra {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+
+        // Solicitar datos al usuario
+        System.out.print("Ingrese el nombre del trabajador: ");
+        String nombreTrabajador = entrada.nextLine();
+
+        System.out.print("Ingrese el pago base por hora: ");
+        double pagoPorHora = entrada.nextDouble();
+
+        System.out.print("Ingrese el total de horas trabajadas en la semana: ");
+        int horasTrabajadas = entrada.nextInt();
+
+        // Definir jornada nor
+        int jornadaNormal = 40;
+        int horasExtra = 0;
+        double sueldoBase;
+        double pagoHorasExtra = 0;
+        double sueldoTotal;
+
+        // Calcular sueldo base
+        sueldoBase = jornadaNormal * pagoPorHora;
+
+        // Verificar si hay horas extra
+        if (horasTrabajadas > jornadaNormal) {
+            horasExtra = horasTrabajadas - jornadaNormal;
+
+            double porcentajeBonificacion = 0;
+
+            // Asignar bonificación según el número de horas extra
+            if (horasExtra >= 16) {
+                porcentajeBonificacion = 0.50;
+            } else if (horasExtra >= 11) {
+                porcentajeBonificacion = 0.40;
+            } else if (horasExtra >= 6) {
+                porcentajeBonificacion = 0.30;
+            } else if (horasExtra >= 1) {
+                porcentajeBonificacion = 0.20;
+            }
+
+            // Calcular pago por horas extra
+            double pagoConBonificacion = pagoPorHora * (1 + porcentajeBonificacion);
+            pagoHorasExtra = horasExtra * pagoConBonificacion;
+        }
+        
+        sueldoTotal = sueldoBase + pagoHorasExtra;
+
+        // Mostrar resultados
+        System.out.println("\n--- Cálculo de sueldo semanal ---");
+        System.out.println("Nombre del trabajador: " + nombreTrabajador);
+        System.out.println("Jornada normal: " + jornadaNormal + " horas");
+        System.out.println("Pago por jornada normal: $" + String.format("%.2f", sueldoBase));
+        System.out.println("Horas extra trabajadas: " + horasExtra);
+        System.out.println("Pago por horas extra: $" + String.format("%.2f", pagoHorasExtra));
+        System.out.println("Sueldo total: $" + String.format("%.2f", sueldoTotal));
+
+        entrada.close();
+    }
+}

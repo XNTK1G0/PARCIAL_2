@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Vocales {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        String palabra;
+        int totalVocales = 0;
+
+        System.out.println("Ingresa palabras para contar las vocales (escribe 'salir' para terminar).");
+
+        System.out.print("Ingresa una palabra: ");
+        palabra = entrada.nextLine();
+
+        while (!palabra.equalsIgnoreCase("salir")) {
+            int vocales = 0;
+            for (int i = 0; i < palabra.length(); i++) {
+                char c = Character.toLowerCase(palabra.charAt(i));
+                if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                    vocales++;
+                }
+            }
+            totalVocales += vocales;
+            System.out.println("La palabra '" + palabra + "' tiene " + vocales + " vocal(es).");
+
+            System.out.print("Ingresa otra palabra (o 'salir' para terminar): ");
+            palabra = entrada.nextLine();
+        }
+
+        System.out.println("El total de vocales ingresadas es: " + totalVocales);
+        entrada.close();
+    }
+    /*En este codigo se usa while por que las repeticiones del ciclo dependen
+    completamente del usuario
+     */
+}
